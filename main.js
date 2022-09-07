@@ -98,7 +98,7 @@ function GetRefreshToken() {
 			// Save Access Token to Auth.json
 
 			let accessToken = {
-				"Auth": data.body['access_token'],
+				"auth": data.body['access_token'],
 				"LastFMAuth": "15c7aeccdfc01e42d2a026283a691c94"
 			}
 
