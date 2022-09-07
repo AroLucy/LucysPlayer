@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="theme.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="17.70022"
+     inkscape:cx="17.400914"
+     inkscape:cy="12.937692"
+     inkscape:window-width="1292"
+     inkscape:window-height="679"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 13.981168,16.764626 h -3.73635 c -0.2578079,0 -0.4670439,0.209235 -0.4670439,0.467043 0,0.257809 0.209236,0.467044 0.4670439,0.467044 h 3.73635 c 0.257808,0 0.467044,-0.209235 0.467044,-0.467044 0,-0.257808 -0.209236,-0.467043 -0.467044,-0.467043 z m 0,1.868175 h -3.73635 c -0.2578079,0 -0.4670439,0.209235 -0.4670439,0.467043 0,0.257808 0.209236,0.467044 0.4670439,0.467044 h 3.73635 c 0.257808,0 0.467044,-0.209236 0.467044,-0.467044 0,-0.257808 -0.209236,-0.467043 -0.467044,-0.467043 z m 0.233522,1.868175 h -4.203394 l 1.109696,0.730456 c 0.14385,0.128904 0.354954,0.203631 0.574464,0.203631 h 0.836008 c 0.218577,0 0.430615,-0.07473 0.574464,-0.203631 z M 17.717518,7.6115034 c 0,3.3337576 -3.002157,5.5886446 -3.002157,8.2190346 0,0 -5.2296673,-0.03526 -5.2047357,0 0,-2.63039 -3.0021571,-4.885277 -3.0021571,-8.2190346 0,-3.4776076 2.8003942,-5.3915528 5.6017228,-5.3915528 2.803196,0 5.607327,1.9158134 5.607327,5.3915528 z"
+     id="path2"
+     sodipodi:nodetypes="sssssssssssssscccssccsccsss"
+     style="stroke-width:0.934087"/>
+</svg>

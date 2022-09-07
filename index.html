@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html id="html">
+  <head>
+    <title id="title">Lucy's Player</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
+	<base href="./">
+	<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="media/style.css">
+    <link rel="icon" href="media/me.ico">
+  </head>
+  <body>
+	<div id="title-bar">
+		<div id="title">
+			<span style="vertical-align: middle;">
+			</span>
+			
+		</div>
+		 <div id="title-bar-btns">
+			  <button onclick="window.close()" id="close-button">x</button>
+		 </div>
+	</div>
+    <main>
+	<div id="spotify">
+			<img id="art" width="100px" height="100px">
+			<div id="text">
+				<h1 id="track">Track</h1>
+				<h2 id="album">Album</h2>
+				<h2 id="artist">Artist</h2>
+				<div id="progressdiv">
+					<p id="progress" for="length">0:00</p>
+					<input type="range" id="length" max="0" value="0"></input>
+					<p id="timelength" for="length">0:00</p>
+				</div>
+			</div>
+			<div id="paa">
+				<button id="LoopB" onclick="Loop()"><img id="Loop" src="media/loopall.svg"></button>
+				<button id="RWb" onclick="Previous()"><img id="RW" src="media/prev.svg"></button>
+				<button id="PlaybackB" accesskey="space" onclick="Playback()"><img id="Playback" src="media/play.svg"></button>
+				<!--<button id="PLb" onclick="Play()"><img id="PL" src="media/play.svg"></button>-->
+				<button id="FFb" onclick="Next()"><img id="FF" src="media/next.svg"></button>
+				<button id="ShuffleB" onclick="Shuffle()"><img id="Shuffle" src="media/shuffle.svg"></button>
+			</div>
+		</div>
+    </main>
+	<div id="Settings">
+			<h1>Settings</h1>
+			<h2>Theme</h2>
+			<button class="SettingsButton" onclick="Theme()">Change Theme</button>
+		<!--<p>[DEVELOPER]</p>
+		<form class="SettingsForm">
+			<input class="SettingsInput" type="text" id="API" placeholder="Enter Spotify API Token">
+			<input class="SettingsButton" type="submit">
+		</form>-->
+		<div id="DoneD">
+			<button class="SettingsButton" id="Done" onclick="Settings()">Done</button>
+		</div>
+    </div>
+	<footer>
+	    <button id="SettingsButton" onclick="Settings()"><img id="SettingsIconImg" src="media/settings.svg"></button>
+	</footer>
+	<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    <script src="media/app.js"></script>
+    <script src="Spotify.js?id=1"></script>
+  </body>
+</html>
