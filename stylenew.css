@@ -18,23 +18,95 @@
     --accent: #1d1d1d
 }
 
+/* Title Bar */
+
+#title-bar {
+    -webkit-app-region: drag;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: middle;
+    background-color: var(--accent);
+    padding: none;
+    margin: 0px;
+    z-index: 1;
+}
+
+#title {
+    position: fixed;
+    top: 0px;
+    left: 6px;
+    color: var(--text);
+    background: var(--accent)
+
+}
+
+#title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    top: 0.4em;
+    right: 0.4em;
+}
+
+#title-bar-btns > button {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1em;
+    font-family: Roboto;
+    width: 1.25em;
+    height: 1.25em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    right: 0.5em;
+    transition: all 0.25s
+}
+
+#title-bar-btns > button:hover > img:not(.DarkIcon) {
+    filter: invert();
+} 
+
+#title-bar-btns > button:hover {
+    background: red;
+    border-radius: 1em;
+    border: none;
+    color: white;
+    transition: all 0.25s
+}
+
 /* Main Styles */
 
 html,
 body {
     height: 100%;
     margin: 0px;
-    background: var(--body);
+    background: transparent;
     color: var(--text);
+    transition: all 0.25s;
+    padding: 0px;
+    overflow: hidden;
+    border-radius: 0.75em
 }
 
 main {
     display: flex;
-    height: 100vh;
+    height: 31em;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
+    background: var(--body);
+    padding: 1em;
+}
+
+* {
+    user-select: none;
+}
+
+
+main > * {
     filter: drop-shadow(0px 0px 5px var(--shadow));
 }
 
@@ -47,26 +119,13 @@ footer {
     filter: drop-shadow(0px 0px 5px var(--shadow));
 }
 
-/* Text Styles */
+/* Test Styles */
 
-h1,
-h2,
-label {
+* {
     font-family: 'Roboto', sans-serif;
 }
 
-p {
-    font-family: 'Open Sans', sans-serif;
-}
-
-/* Buttons */
-
-#Buttons>button>img {
-    width: 2em;
-}
-
-
-/* Theme Button */
+/* Settings */
 
 #SettingsButton {
     position: absolute;
@@ -82,93 +141,6 @@ p {
 }
 
 #DoneD {
-    padding: 1em;
-}
-
-#RWb,
-#PlaybackB,
-#FFb,
-#ShuffleB,
-#LoopB {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3em;
-    width: 3em;
-    font-family: 'Open Sans', sans-serif;
-    background: transparent;
-    border: none;
-    border-radius: 2em;
-    padding: 1em;
-}
-
-.DarkIcon {
-    filter: invert();
-}
-
-#ThemeIcon {
-    filter: invert();
-}
-
-
-#RW:hover,
-#Playback:hover,
-#FF:hover,
-#Shuffle:hover,
-#Loop:hover {
-    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(200deg) brightness(70%);
-}
-
-.Active {
-    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(210deg)
-}
-
-* {
-    user-select: none;
-}
-
-/* Spotify Now Playing */
-
-#spotify {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-}
-
-#track {
-    font-size: 2em;
-}
-
-#album {
-    display: none;
-}
-
-#artist {
-    font-size: 1em;
-}
-
-
-#art {
-    height: 10em;
-    width: 10em;
-    pointer-events: none
-}
-
-label#progress {
-    font-size: 0.75em;
-}
-#paa {
-    display: flex;
-}
-
-#progressdiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#progressdiv > p{
-    font-size: 0.75em;
     padding: 1em;
 }
 
@@ -227,52 +199,70 @@ label#progress {
     display: flex;
 }
 
-body {
-    transition: all 0.25s;
+/* Spotify */
+
+
+#spotify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
 }
 
-#title-bar {
-    -webkit-app-region: drag;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    vertical-align: middle;
-    background-color: var(--accent);
-    padding: none;
-    margin: 0px;
-    z-index: 2;
+#track {
+    font-size: 2em;
 }
 
-#title {
-    position: fixed;
-    top: 0px;
-    left: 6px;
-    color:white;
-
+#album {
+    display: none;
 }
 
-#title-bar-btns {
-    -webkit-app-region: no-drag;
-    position: fixed;
-    top: 0px;
-    right: 6px;
+#artist {
+    font-size: 1em;
 }
 
-#title-bar-btns > button {
+
+#art {
+    height: 10em;
+    width: 10em;
+    pointer-events: none;
+    border-radius: 1em;
+}
+
+#progress {
+    font-size: 0.75em;
+}
+#controls {
+    display: flex;
+}
+
+#progressdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#progressdiv > p{
+    font-size: 0.75em;
+    padding: 1em;
+}
+
+/* Control Buttons */
+
+#controls > button {
     background: none;
     border: none;
-    color: var(--text);
-    font-size: 1em;
-    font-family: Roboto;
-}
-#title-bar-btns > button:hover {
-    background: red;
-    border: none;
-    color: white
 }
 
-body {
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
+.DarkIcon {
+    filter: invert()
 }
+
+#controls > button > img:hover {
+    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(230deg)
+}
+
+.Active {
+    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg)
+}
+
+

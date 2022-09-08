@@ -13,7 +13,7 @@ async function Authcode() {
     Client = await $.post("http://localhost:8888/DataListener",{'type': "client"}, function(data){
 	});
 
-    scopes = ['user-read-currently-playing', 'user-read-playback-state', 'user-modify-playback-state'],
+    scopes = ['user-read-currently-playing', 'user-read-playback-state', 'user-modify-playback-state', 'user-read-recently-played'],
     clientId = Client.CLIENT_ID;
     clientSecret = Client.CLIENT_SECRET;
     redirectUri = 'http://localhost:8888/callback';

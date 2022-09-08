@@ -9,6 +9,7 @@ function Toggle() {
     document.getElementById("Loop").classList.toggle("DarkIcon")
     document.getElementById("Playback").classList.toggle("DarkIcon")
     document.getElementById("FF").classList.toggle("DarkIcon")
+    document.getElementById("Close").classList.toggle("DarkIcon")
     document.getElementById("SettingsIconImg").classList.toggle("DarkIcon")
 }
 
@@ -32,7 +33,7 @@ function Theme() {
 }
 
 if (toggled == 'true') {
-    document.getElementsByTagName("html").toggle("darkmode")
+    Toggle()
 }
 
 function Settings() {

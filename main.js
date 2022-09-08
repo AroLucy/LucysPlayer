@@ -15,24 +15,24 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const { remote } = require('electron');
 const settings = require('electron-settings')
 
-if (!fs.existsSync(process.env.APPDATA + '\\LucysPlayer')){
-    fs.mkdirSync(process.env.APPDATA + '\\LucysPlayer');
+if (!fs.existsSync(process.env.APPDATA + "\\Lucy's Player\\Data")){
+    fs.mkdirSync(process.env.APPDATA + "\\Lucy's Player\\Data");
 	a = {"A":"A"}
 	b = JSON.stringify(a)
-	fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Client.json', b)
-	fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Code.json', b)
-	fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Data.json', b)
-	fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Refresh.json', b)
+	fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Client.json", b)
+	fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Code.json", b)
+	fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Data.json", b)
+	fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Refresh.json", b)
     console.log('Folder Created Successfully.');
 }
 
-Client = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Client.json')
-RefreshJ = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Refresh.json')
+Client = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Client.json")
+RefreshJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Refresh.json")
 Refresh = JSON.parse(RefreshJ)
 console.log("Data Imported")
 
 function refreshSpotifyToken() {
-	let ClientJ = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Client.json');
+	let ClientJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Client.json");
 	let Client = JSON.parse(ClientJ);
 	credentials = {
 		clientId : Client.CLIENT_ID,
@@ -40,10 +40,10 @@ function refreshSpotifyToken() {
 		redirectUri : 'http://localhost:8888/callback'
 	}
 	var spotifyApi = new SpotifyWebApi(credentials);
-	let rawdataA = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Data.json');
+	let rawdataA = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Data.json");
 	let dataA = JSON.parse(rawdataA);
 	spotifyApi.setAccessToken(dataA.auth);
-	let rawdataR = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Refresh.json');
+	let rawdataR = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Refresh.json");
 	let dataR = JSON.parse(rawdataR);
 	spotifyApi.setRefreshToken(dataR.refresh);
 	
@@ -61,7 +61,7 @@ function refreshSpotifyToken() {
 				"LastFMAuth": "15c7aeccdfc01e42d2a026283a691c94"
 			};
 			let DataTW = JSON.stringify(accessToken);
-			fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Data.json', DataTW);
+			fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Data.json", DataTW);
 
 			var today = new Date();
 			var timeM = today.getMinutes() + 30;
@@ -107,9 +107,9 @@ function GetRefreshToken() {
 			}
 
 			let DataA = JSON.stringify(accessToken);
-			fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Data.json', DataA);
+			fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Data.json", DataA);
 			let DataR = JSON.stringify(refreshToken);
-			fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Refresh.json', DataR),
+			fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Refresh.json", DataR),
 
 			// Set the access token on the API object to use it in later calls
 				
@@ -131,7 +131,7 @@ credentials = {
 var spotifyApi = new SpotifyWebApi(credentials);
 
 function ClientWindow() {
-	win = new BrowserWindow({width: 300, height: 550, frame:false, resizable: false, icon:'media/me.ico', webPreferences:{enableRemoteModule: true}}) 
+	win = new BrowserWindow({width: 300, height: 550, frame:false, resizable: false, transparent:true, icon:'media/me.ico', webPreferences:{enableRemoteModule: true}}) 
 	
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),
@@ -156,22 +156,22 @@ router.post('/DataListener', urlencodedParser, function (req, res) {
 			"CLIENT_SECRET": ClientSecret
 		}
 		Data = JSON.stringify(DataJ)
-		fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Client.json', Data);
+		fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Client.json", Data);
 		console.log(Data)
 		res.send("yes")
 	}
 	if (req.body.type == "refresh") {
-		RefreshJ = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Refresh.json')
+		RefreshJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Refresh.json")
 		Refresh = JSON.parse(RefreshJ)
 		res.json(Refresh)
 	}
 	if (req.body.type == "client") {
-		ClientJ = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Client.json')
+		ClientJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Client.json")
 		Client = JSON.parse(ClientJ)
 		res.json(Client)
 	}
 	if (req.body.type == "auth") {
-		AuthJ = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Data.json')
+		AuthJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Data.json")
 		Auth = JSON.parse(AuthJ)
 		res.json(Auth)
 	}
@@ -182,23 +182,17 @@ router.post('/DataListener', urlencodedParser, function (req, res) {
 
 appE.get('/callback', function(req, res) {
 	code = req.query.code
-	fs.writeFileSync(process.env.APPDATA + '\\LucysPlayer\\Code.json', code)
-	ClientJ = fs.readFileSync(process.env.APPDATA + '\\LucysPlayer\\Client.json')
+	fs.writeFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Code.json", code)
+	ClientJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Client.json")
 	Client = JSON.parse(ClientJ)
-	console.log("A")
 	ClientId = Client.CLIENT_ID;
 	ClientSecret = Client.CLIENT_SECRET;
 	console.log(ClientId, ClientSecret)
-	console.log("B")
 	credentials = {
 		clientId: Client.CLIENT_ID,
 		clientSecret: Client.CLIENT_SECRET,
 		redirectUri: 'http://localhost:8888/callback'
 	};
-	console.log("C")
-
-	
-	console.log("D")
 	res.send('<script>window.close()</script>')
 	GetRefreshToken(code)
 });
