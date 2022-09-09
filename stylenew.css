@@ -8,14 +8,16 @@
     --body: #fff;
     --text: #000;
     --shadow: #777;
-    --accent: #e1e1e1
+    --accent: #efefef;
+    --colorAccent: #8f8bff;
 }
 
 .darkmode {
     --body: #222;
     --text: #fff;
     --shadow: #555;
-    --accent: #1d1d1d
+    --accent: #2b2b2b;
+    --colorAccent: #8f8bff;
 }
 
 /* Title Bar */
@@ -26,7 +28,7 @@
     text-align: center;
     line-height: 30px;
     vertical-align: middle;
-    background-color: var(--accent);
+    background-color: var(--body);
     padding: none;
     margin: 0px;
     z-index: 1;
@@ -36,8 +38,7 @@
     position: fixed;
     top: 0px;
     left: 6px;
-    color: var(--text);
-    background: var(--accent)
+    color: #999;
 
 }
 
@@ -142,6 +143,8 @@ footer {
 
 #DoneD {
     padding: 1em;
+    position: absolute;
+    bottom: 1em;
 }
 
 
@@ -150,15 +153,15 @@ footer {
     position: absolute;
     flex-direction: column;
     align-items: center;
-    bottom: 3vh;
-    left: 3vw;
+    bottom: 0vh;
+    left: 0vw;
     background: var(--accent);
-    width: 94vw;
-    height: auto;
+    width: 100vw;
+    height: 0vh;
     z-index: 1;
-    border-radius: 5px;
+    border-radius: 1em;
     filter: drop-shadow(0px 0px 6px var(--shadow));
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 #Settings > * {
@@ -169,16 +172,16 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3em;
+    height: 2em;
     color: var(--text);
     font-family: 'Open Sans', sans-serif;
-    background: var(--body);
+    background: transparent;
     border: none;
     border-radius: 2em;
     transition: all 1s;
 }
 .SettingsButton:hover {
-    background: #dd99ff;
+    background: var(--colorAccent);
     transition: all 1s;
 }
 
@@ -197,6 +200,10 @@ footer {
 
 .SettingsForm {
     display: flex;
+}
+
+#SettingsButton:hover > img {
+    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg) !important
 }
 
 /* Spotify */
@@ -258,11 +265,158 @@ footer {
 }
 
 #controls > button > img:hover {
-    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(230deg)
+    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg)
 }
 
 .Active {
     filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg)
 }
 
+.Active:hover {
+    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg) brightness(0.75) !important
+}
 
+ /* Switches */
+.switch {
+    position: relative;
+    display: inline;
+    width: 3em;
+    height: 1.5em;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+ 
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.5em;
+    width: 1.5em;
+    left: 0px;
+    bottom: 0px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--colorAccent);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--colorAccent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
+
+/* Slider */
+
+input[type=range] {
+    border: none;
+    height: 0.8em;
+    border-radius: 10em;
+    overflow:hidden;
+    -webkit-appearance: none;
+}
+            
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.8em;
+    width: 0.8em;
+    background: var(--colorAccent);
+    box-shadow: -85px 0 0 80px var(--colorAccent);
+    border-radius: 4em;
+    filter: drop-shadow(0 0 2em #222)
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+    background: #fff;
+    filter: drop-shadow(0 0 2em #222)
+}
+
+/* Accent Color Picker */
+
+input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    margin-bottom: 10px;
+    border-radius: 3em;
+}
+
+
+input[type="checkbox"]#Purple + label {
+    border: 3px solid #8f8bff;
+    color: #8f8bff;
+    border-radius: 3em;
+}
+
+input[type="checkbox"]:checked#Purple + label {
+    background-color: #8f8bff33;
+    color: white;
+}
+
+input[type="checkbox"]#Blue + label {
+    border: 3px solid #06bdff;
+    color: #06bdff;
+    border-radius: 3em;
+}
+
+input[type="checkbox"]:checked#Blue + label {
+    background-color: #06bdff33;
+    color: white;
+}
+
+input[type="checkbox"]#Green + label {
+    border: 3px solid #00d234;
+    color: #00d234;
+    border-radius: 3em;
+}
+
+input[type="checkbox"]:checked#Green + label {
+    background-color: #00d23433;
+    color: white;
+}
+
+input[type="checkbox"]#Yellow + label {
+    border: 3px solid #cb9c00;
+    color: #cb9c00;
+    border-radius: 3em;
+}
+
+input[type="checkbox"]:checked#Yellow + label {
+    background-color: #cb9c0033;
+    color: white;
+}

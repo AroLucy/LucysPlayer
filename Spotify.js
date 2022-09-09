@@ -60,14 +60,9 @@ async function GetData() {
     	}
 
 	if (Paused !== true) {
-
+		document.getElementById("Playback").src = "media/pause.svg"
 		Progress = NowPlay.progress_ms
 		ProgressBefore = document.getElementById("length").value
-
-		if (Progress == ProgressBefore) {
-			Paused = true
-			return
-		}
 
         Album = NowPlay.item.album.name
         Artist = NowPlay.item.artists[0].name
@@ -79,27 +74,23 @@ async function GetData() {
         Track = NowPlay.item.name
 		TrackBefore = document.getElementById("track").innerHTML
 
-        if (Track !== TrackBefore) {
-            if (NowPlay.item.is_local == true) {
-                Art = LastFM.album.image[5]["#text"]
-                Artist = LastFM.album.artist
-            } else {
-                Art = NowPlay.item.album.images[0].url
-            }
+        if (NowPlay.item.is_local == true) {
+            Art = LastFM.album.image[5]["#text"]
+            Artist = LastFM.album.artist
+        } else {
+            Art = NowPlay.item.album.images[0].url
+        }
 
-			Length = NowPlay.item.duration_ms
-			URI = NowPlay.context.uri
-
-			Time = msToTime(Progress)
-			TimeMax = msToTime(Length)
-
-			document.getElementById("timelength").innerHTML = TimeMax
-			document.getElementById("track").innerHTML = Track
-			document.getElementById("title").innerHTML = "Lucy's Player | " + Track
-			document.getElementById("artist").innerHTML = Artist
-			document.getElementById("art").src = Art
-			document.getElementById("length").max = Length
-		}
+		Length = NowPlay.item.duration_ms
+		URI = NowPlay.context.uri
+		Time = msToTime(Progress)
+		TimeMax = msToTime(Length)
+		document.getElementById("timelength").innerHTML = TimeMax
+		document.getElementById("track").innerHTML = Track
+		document.getElementById("title").innerHTML = "Lucy's Player | " + Track
+		document.getElementById("artist").innerHTML = Artist
+		document.getElementById("art").src = Art
+		document.getElementById("length").max = Length
 
 		if (document.getElementById("length").matches(":active") == false) {
 			document.getElementById("length").value = Progress	
@@ -107,7 +98,6 @@ async function GetData() {
 		if (NowPlay.repeat_state !== "off") {
 			document.getElementById("Loop").classList.add("Active")
 		}
-
 		if (NowPlay.repeat_state == "track") {
 			document.getElementById("Loop").src = "media/loopone.svg"
 		} else {
@@ -116,7 +106,7 @@ async function GetData() {
 		if (NowPlay.shuffle_state == true) {
 			document.getElementById("Shuffle").classList.add("Active")
 		}
-    }
+	}
 }
 
 function Play() {
