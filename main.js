@@ -12,8 +12,6 @@ var cors = require('cors');
 const SpotifyWebApi = require('spotify-web-api-node');
 var cookieParser = require('cookie-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-const { remote } = require('electron');
-const settings = require('electron-settings')
 
 if (!fs.existsSync(process.env.APPDATA + "\\Lucy's Player\\Data")){
     fs.mkdirSync(process.env.APPDATA + "\\Lucy's Player\\Data");
