@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i electron
-    - run: npm i electron-builder
+    - run: npm i electron -g
+    - run: npm i electron-builder -g
     - run: npm i
     - run: npm run dist
