@@ -25,7 +25,7 @@
         "appId": "lucys-spotify-controler",
         "mac": {
             "category": "music"
-        }
+        },
         "linux": {
             "icon": "build/icon.png",
             "target": [
