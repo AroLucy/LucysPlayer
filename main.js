@@ -130,7 +130,7 @@ var spotifyApi = new SpotifyWebApi(credentials);
 
 function ClientWindow() {
 	win = new BrowserWindow({width: 300, height: 550, frame:false, resizable: false, transparent:true, icon:'media/me.ico', webPreferences:{enableRemoteModule: true}}) 
-	
+	win.setAlwaysOnTop(true, 'screen');
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),
 		protocol: 'file:',
