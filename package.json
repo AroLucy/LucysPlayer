@@ -33,7 +33,7 @@
                 "deb",
                 "snap",
                 "appimage"
-            ]
+            ],
             "maintainer": "LucyUwI"
         }
     }
