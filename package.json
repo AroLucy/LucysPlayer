@@ -27,7 +27,7 @@
             "category": "music"
         }
         "linux": {
-            "icon": "build/2icon.png",
+            "icon": "build/icon.png",
             "target": [
                 "deb",
                 "snap",
