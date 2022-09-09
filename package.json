@@ -26,5 +26,13 @@
         "mac": {
             "category": "music"
         }
+        "linux": {
+            "icon": "build/2icon.png",
+            "target": [
+                "deb",
+                "snap",
+                "appimage"
+            ]
+        }
     }
 }
