@@ -3,6 +3,7 @@
     "version": "0.1.4",
     "main": "main.js",
     "author": "LucyUwI",
+    "email": "arolucy2@gmail.com",
     "description": "A Spotify controller I made with node.js and Electron",
     "productName": "Lucy's Player",
     "scripts": {
@@ -33,6 +34,7 @@
                 "snap",
                 "appimage"
             ]
+            "maintainer": "LucyUwI"
         }
     }
 }
