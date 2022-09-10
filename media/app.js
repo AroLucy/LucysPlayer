@@ -43,6 +43,7 @@ function ModeToggle(){
         document.getElementById("art").style.width = "5em"
         document.getElementById("art").style.height = "5em"
         document.getElementById("art").style.marginRight= "1em"
+        document.getElementById("art").style.marginLeft= ".1em"
         document.getElementById("track").style.fontSize = "1em"
         document.getElementById("artist").style.fontSize = ".9em"
         document.getElementsByTagName('main')[0].style.padding ="0em"
@@ -60,6 +61,8 @@ function ModeToggle(){
         document.getElementById("controls").style.display = "flex";
         document.getElementById("art").style.width = "10em"
         document.getElementById("art").style.height = "10em"
+        document.getElementById("art").style.marginRight= "0em"
+        document.getElementById("art").style.marginLeft= "0em"
         document.getElementById("track").style.fontSize = "2em"
         document.getElementById("artist").style.fontSize = "1em"
         document.getElementsByTagName('main')[0].style.padding ="1em"
