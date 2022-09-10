@@ -44,16 +44,20 @@
 
     </main>
 	<div id="Settings">
-		<h1>Settings</h1>
-		<h2>Display</h2>
-		<p>Enable Darkmode</p>
+		<h2 >Settings</h2>
+		<h3 class="hide">Display</h3>
+		<p class="hide">Enable Darkmode</p>
+		<label class="switch" class="hide">
+			<input id="LightSwitch" type="checkbox" class="hide">
+			<span class="slider round" ></span>
+		</label>
+		<p>Compact Mode</p>
 		<label class="switch">
-			<input id="LightSwitch" type="checkbox">
+			<input id="ModeSwitch" type="checkbox">
 			<span class="slider round"></span>
 		</label>
-		<br>
-		<p>Accent Color</p>
-		<div id="Colors">
+		<p class="hide">Accent Color</p>
+		<div id="Colors" class="hide">
 			<input id="Purple" type="checkbox">
 			<label for="Purple">Purple</label>
 			<input id="Blue" type="checkbox">
@@ -63,9 +67,9 @@
 			<input id="Yellow" type="checkbox">
 			<label for="Yellow">Yellow</label>
 		</div> 
-		<p>Hide Version Text</p>
-		<label class="switch">
-			<input id="VerTextB" type="checkbox">
+		<p class="hide">Hide Version Text</p>
+		<label class="switch"  class="hide">
+			<input id="VerTextB" type="checkbox" class="hide">
 			<span class="slider round"></span>
 		</label>
 		<div id="DoneD">
