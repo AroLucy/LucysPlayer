@@ -129,7 +129,7 @@ credentials = {
 var spotifyApi = new SpotifyWebApi(credentials);
 
 function ClientWindow() {
-	win = new BrowserWindow({width: 300, height: 550, frame:false, resizable: false, transparent:true, icon:'media/me.ico', webPreferences:{enableRemoteModule: true}}) 
+	win = new BrowserWindow({width: 300, height: 550, frame:false, resizable: false, transparent:true, icon:'media/me.ico', webPreferences:{enableRemoteModule: true, preload: path.join(__dirname, './preload.js'), }}) 
 	
 	win.loadURL(url.format({
 		pathname: path.join(__dirname, 'index.html'),

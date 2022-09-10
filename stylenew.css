@@ -47,6 +47,7 @@
     position: fixed;
     top: 0.4em;
     right: 0.4em;
+    display: flex;
 }
 
 #title-bar-btns > button {
@@ -369,7 +370,7 @@ input[type="checkbox"]:checked {
 
 input[type="checkbox"] + label {
     display: inline-block;
-    padding: 10px;
+    padding: 7px;
     cursor: pointer;
     background-color: transparent;
     margin-bottom: 10px;
@@ -418,5 +419,14 @@ input[type="checkbox"]#Yellow + label {
 
 input[type="checkbox"]:checked#Yellow + label {
     background-color: #cb9c0033;
+    color: white;
+}
+
+#Beta {
+    background: var(--colorAccent);
+    border-radius: 1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    font-weight: bold;
     color: white;
 }

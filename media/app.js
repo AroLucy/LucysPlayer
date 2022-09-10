@@ -4,6 +4,7 @@ VerText = localStorage.getItem('HideVerText')
 LightSwitch = document.getElementById('LightSwitch')
 VerTextB = document.getElementById('VerTextB')
 body = document.getElementById("html")
+Compact = document.getElementById("Compact")
 
 Purple = document.getElementById("Purple")
 Blue = document.getElementById("Blue")
@@ -39,6 +40,38 @@ function Toggle() {
     document.getElementById("SettingsIconImg").classList.toggle("DarkIcon")
 }
 
+function ComapctMode(state) {
+    if (state == 'true') {
+        window.resizeTo(300,300)
+        document.getElementsByTagName("main")[0].style.height = "14.9em"
+        document.getElementById("art").style.height = "7em"
+        document.getElementById("art").style.width = "7em"
+        document.getElementById("progressdiv").style.display = "none"
+        document.getElementById("controls").style.display = "none"
+        document.getElementsByClassName("switch")[0].style.display = "none"
+        document.getElementsByClassName("switch")[2].style.display = "none"
+        document.getElementById("DarkTit").style.display = "none"
+        document.getElementById("AcceTit").style.display = "none"
+        document.getElementById("VerTit").style.display = "none"
+        document.getElementById("Display").style.display = "none"
+        document.getElementById("Colors").style.display = "none"
+    } else {
+        window.resizeTo(300,550)
+        document.getElementsByTagName("main")[0].style.height = "31em"
+        document.getElementById("art").style.height = "10em"
+        document.getElementById("art").style.width = "10em"
+        document.getElementById("progressdiv").style.display = "flex"
+        document.getElementById("controls").style.display = "flex"
+        document.getElementsByClassName("switch")[0].style.display = "block"
+        document.getElementsByClassName("switch")[2].style.display = "block"
+        document.getElementById("DarkTit").style.display = "block"
+        document.getElementById("AcceTit").style.display = "block"
+        document.getElementById("VerTit").style.display = "block"
+        document.getElementById("Display").style.display = "block"
+        document.getElementById("Colors").style.display = "block"
+    }
+}
+
 function ChangeAccent(Hex, HueRotate) {
     Root.style = "--body: #fff; --text: #000; --shadow: #777; --accent: #efefef; --colorAccent: #"+Hex+";"
     Darkmode.style = "--body: #222; --text: #fff; --shadow: #555; --accent: #2b2b2b; --colorAccent: #"+Hex+";"
@@ -46,6 +79,11 @@ function ChangeAccent(Hex, HueRotate) {
     Active.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
     ActiveHover.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg) brightness(0.75) !important;"
     SettingsButton.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
+}
+
+if (localStorage.getItem("Compact") == 'true') {
+    Compact.checked = true
+    ComapctMode('true')
 }
 
 if (Accent == undefined) {
@@ -178,3 +216,24 @@ Yellow.addEventListener('change', (event) => {
         document.getElementById("VerText").style.display = 'block'
     }
   })
+
+  Compact.addEventListener('change', (event) => {
+    if (Compact.checked == true) {
+        ComapctMode('true')
+        localStorage.setItem("Compact", 'true')
+    } else {
+        ComapctMode('false')
+        localStorage.setItem("Compact", 'false')
+    }
+})
+
+window.addEventListener('keydown', function (event) {
+
+    var key = event.which || event.keyCode;
+
+    if (key === 27) { // esc
+      Settings()
+      
+    }
+
+});

@@ -167,18 +167,16 @@ function Next() {
 }
 
 function Seek() {
-	if (document.getElementById("length").matches(":active") == true) {
-		Play()
-		Paused = false
-		fetch("https://api.spotify.com/v1/me/player/seek?position_ms=" + document.getElementById("length").value, {
-			headers: {
-				Accept: "application/json",
-				Authorization: "Bearer " + Auth,
-				"Content-Type": "application/json"
-			},
-			method: "PUT"
-		})
-	}
+	Play()
+	Paused = false
+	fetch("https://api.spotify.com/v1/me/player/seek?position_ms=" + document.getElementById("length").value, {
+		headers: {
+			Accept: "application/json",
+			Authorization: "Bearer " + Auth,
+			"Content-Type": "application/json"
+		},
+		method: "PUT"
+	})
 }
 
 function UpdateTime() {
@@ -245,7 +243,6 @@ function Loop() {
 }
 
 setInterval(UpdateTime, 1)
-setInterval(Seek, 10)
 setInterval(AuthTokens, 1000)
 setInterval(GetData, 1000)
 
