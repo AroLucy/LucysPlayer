@@ -2,6 +2,7 @@ toggled = localStorage.getItem('DarkMode')
 Accent = localStorage.getItem('Accent')
 VerText = localStorage.getItem('HideVerText')
 LightSwitch = document.getElementById('LightSwitch')
+ModeSwitch = document.getElementById('ModeSwitch')
 VerTextB = document.getElementById('VerTextB')
 body = document.getElementById("html")
 
@@ -27,7 +28,47 @@ ControlCSS = rules[35]
 Active = rules[36]
 ActiveHover = rules[37]
 SettingsButton = rules[23]
-
+function ModeToggle(){
+    var hideshit = document.getElementsByClassName("hide") 
+   var switches = document.getElementsByClassName("switch") 
+    if(ModeSwitch.checked == true) {
+        for (var i = 0; i < hideshit.length; i ++) {
+            hideshit[i].style.display = 'none';
+        }
+        for (var i = 0; i < switches.length; i ++) {
+            if(i!=1)switches[i].style.display = 'none';
+        }
+        document.getElementById("progressdiv").style.display = "none";
+        document.getElementById("controls").style.display = "none";
+        document.getElementById("art").style.width = "5em"
+        document.getElementById("art").style.height = "5em"
+        document.getElementById("art").style.marginRight= "1em"
+        document.getElementById("track").style.fontSize = "1em"
+        document.getElementById("artist").style.fontSize = ".9em"
+        document.getElementsByTagName('main')[0].style.padding ="0em"
+        document.getElementsByTagName('main')[0].style.alignItems ="start"
+        document.getElementsByTagName('main')[0].style.flexDirection ="row"
+        window.resizeTo(300,300)
+    }else if(ModeSwitch.checked == false) {
+        for (var i = 0; i < hideshit.length; i ++) {
+            hideshit[i].style.display = 'flex';
+        }
+        for (var i = 0; i < switches.length; i ++) {
+            if(i!=1)switches[i].style.display = 'flex';
+        }
+        document.getElementById("progressdiv").style.display = "flex";
+        document.getElementById("controls").style.display = "flex";
+        document.getElementById("art").style.width = "10em"
+        document.getElementById("art").style.height = "10em"
+        document.getElementById("track").style.fontSize = "2em"
+        document.getElementById("artist").style.fontSize = "1em"
+        document.getElementsByTagName('main')[0].style.padding ="1em"
+        document.getElementsByTagName('main')[0].style.alignItems ="center"
+        document.getElementsByTagName('main')[0].style.flexDirection ="column"
+        window.resizeTo(300,550)
+    }
+   
+}
 function Toggle() {
     body.classList.toggle("darkmode")
     document.getElementById("RW").classList.toggle("DarkIcon")
@@ -92,7 +133,9 @@ function Settings() {
         document.getElementById("Settings").style.display = "flex"
     }
 }
-
+ModeSwitch.addEventListener('change', (event) => {
+        ModeToggle()
+})
 LightSwitch.addEventListener('change', (event) => {
     Toggle()
     if (LightSwitch.checked == true) {
