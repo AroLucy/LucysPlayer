@@ -97,6 +97,8 @@ async function GetData() {
 		}
 		if (NowPlay.repeat_state !== "off") {
 			document.getElementById("Loop").classList.add("Active")
+		} else {
+			document.getElementById("Loop").classList.remove("Active")
 		}
 		if (NowPlay.repeat_state == "track") {
 			document.getElementById("Loop").src = "media/loopone.svg"
@@ -105,6 +107,8 @@ async function GetData() {
 		}
 		if (NowPlay.shuffle_state == true) {
 			document.getElementById("Shuffle").classList.add("Active")
+		} else {
+			document.getElementById("Shuffle").classList.remove("Active")
 		}
 	}
 }

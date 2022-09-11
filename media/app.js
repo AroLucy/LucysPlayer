@@ -28,6 +28,7 @@ ControlCSS = rules[35]
 Active = rules[36]
 ActiveHover = rules[37]
 SettingsButton = rules[23]
+CustomAfter = rules[67]
 
 function Toggle() {
     body.classList.toggle("darkmode")
@@ -42,34 +43,70 @@ function Toggle() {
 
 function ComapctMode(state) {
     if (state == 'true') {
-        window.resizeTo(300,300)
-        document.getElementsByTagName("main")[0].style.height = "14.9em"
-        document.getElementById("art").style.height = "7em"
-        document.getElementById("art").style.width = "7em"
-        document.getElementById("progressdiv").style.display = "none"
-        document.getElementById("controls").style.display = "none"
-        document.getElementsByClassName("switch")[0].style.display = "none"
-        document.getElementsByClassName("switch")[2].style.display = "none"
-        document.getElementById("DarkTit").style.display = "none"
-        document.getElementById("AcceTit").style.display = "none"
-        document.getElementById("VerTit").style.display = "none"
-        document.getElementById("Display").style.display = "none"
-        document.getElementById("Colors").style.display = "none"
-        document.getElementById("Custom").style.display = "none"
-        document.getElementById("CustomB").style.display = "none"
-    } else {
+        if (localStorage.getItem("Compact") == 'true') {
+            window.resizeTo(300,300)
+            document.getElementsByTagName("main")[0].style.height = "14.9em"
+            document.getElementsByTagName("main")[0].style.flexDirection = "column"
+            document.getElementById("art").style.height = "7em"
+            document.getElementById("art").style.width = "7em"
+            document.getElementById("text").style.paddingLeft = "0em"
+            document.getElementById("text").style.textAlign = "center"
+            document.getElementById("progressdiv").style.display = "none"
+            document.getElementById("controls").style.display = "none"
+            document.getElementsByClassName("switch")[0].style.display = "none"
+            document.getElementsByClassName("switch")[1].style.display = "block"
+            document.getElementsByClassName("switch")[3].style.display = "none"
+            document.getElementById("DarkTit").style.display = "none"
+            document.getElementById("AcceTit").style.display = "none"
+            document.getElementById("VerTit").style.display = "none"
+            document.getElementById("CompSwit").style.display = "block"
+            document.getElementById("Display").style.display = "none"
+            document.getElementById("Colors").style.display = "none"
+            document.getElementById("Custom").style.display = "none"
+            document.getElementById("CustomB").style.display = "none"
+            document.getElementById("SettTit").style.display = "block"
+        } else {
+            window.resizeTo(300,200)
+            document.getElementsByTagName("main")[0].style.height = "8.6em"
+            document.getElementsByTagName("main")[0].style.flexDirection = "row"
+            document.getElementById("art").style.height = "7em"
+            document.getElementById("art").style.width = "7em"
+            document.getElementById("text").style.paddingLeft = "1em"
+            document.getElementById("progressdiv").style.display = "none"
+            document.getElementById("text").style.textAlign = "left"
+            document.getElementById("controls").style.display = "none"
+            document.getElementsByClassName("switch")[0].style.display = "none"
+            document.getElementsByClassName("switch")[1].style.display = "none"
+            document.getElementsByClassName("switch")[3].style.display = "none"
+            document.getElementById("DarkTit").style.display = "none"
+            document.getElementById("AcceTit").style.display = "none"
+            document.getElementById("CompSwit").style.display = "none"
+            document.getElementById("VerTit").style.display = "none"
+            document.getElementById("Display").style.display = "none"
+            document.getElementById("Colors").style.display = "none"
+            document.getElementById("Custom").style.display = "none"
+            document.getElementById("CustomB").style.display = "none"
+            document.getElementById("SettTit").style.display = "none"
+        }
+    } else if (state) {
         window.resizeTo(300,550)
         document.getElementsByTagName("main")[0].style.height = "31em"
+        document.getElementsByTagName("main")[0].style.flexDirection = "column"
         document.getElementById("art").style.height = "10em"
         document.getElementById("art").style.width = "10em"
+        document.getElementById("text").style.paddingLeft = "0em"
+        document.getElementById("text").style.textAlign = "center"
         document.getElementById("progressdiv").style.display = "flex"
         document.getElementById("controls").style.display = "flex"
         document.getElementsByClassName("switch")[0].style.display = "block"
-        document.getElementsByClassName("switch")[2].style.display = "block"
+        document.getElementsByClassName("switch")[3].style.display = "block"
+        document.getElementById("SettTit").style.display = "block"
+        document.getElementsByClassName("switch")[1].style.display = "block"
         document.getElementById("DarkTit").style.display = "block"
         document.getElementById("AcceTit").style.display = "block"
         document.getElementById("VerTit").style.display = "block"
         document.getElementById("Display").style.display = "block"
+        document.getElementById("CompSwit").style.display = "block"
         document.getElementById("Colors").style.display = "block"
         document.getElementById("Custom").style.display = "block"
         document.getElementById("CustomB").style.display = "block"
@@ -87,6 +124,9 @@ function ChangeAccent(Hex, HueRotate) {
 
 if (localStorage.getItem("Compact") == 'true') {
     Compact.checked = true
+    ComapctMode('true')
+} else if (localStorage.getItem("Compact") == 'Smaller') {
+    SCompact.checked = true
     ComapctMode('true')
 }
 
@@ -106,7 +146,7 @@ if (Accent == undefined) {
     Yellow.checked = true
 } else if (Accent !== null) {
     color(Accent)
-    document.getElementById("Custom").value = Accent
+    document.getElementById("Custom").value = "#"+Accent
 } else if (Accent !== null) {
     Purple.checked = true
     ChangeAccent(PurpleH,PurpleR)
@@ -164,6 +204,8 @@ Purple.addEventListener('change', (event) => {
         Purple.checked = true
         localStorage.setItem('Accent', 'Purple')
         ChangeAccent(PurpleH,PurpleR)
+        CustomAfter.style.background = "transparent"
+        CustomAfter.style.color = "var(--colorAccent)"
     }
  })
 
@@ -181,6 +223,8 @@ Blue.addEventListener('change', (event) => {
         Blue.checked = true
         localStorage.setItem('Accent', 'Blue')
         ChangeAccent(BlueH,BlueR)
+        CustomAfter.style.background = "transparent"
+        CustomAfter.style.color = "var(--colorAccent)"
     }
  })
 
@@ -198,6 +242,8 @@ Green.addEventListener('change', (event) => {
         Green.checked = true
         localStorage.setItem('Accent', 'Green')
         ChangeAccent(GreenH,GreenR)
+        CustomAfter.style.background = "transparent"
+        CustomAfter.style.color = "var(--colorAccent)"
     }
  })
 Yellow.addEventListener('change', (event) => {
@@ -214,6 +260,8 @@ Yellow.addEventListener('change', (event) => {
         Yellow.checked = true
         localStorage.setItem('Accent', 'Yellow')
         ChangeAccent(YellowH,YellowR)
+        CustomAfter.style.background = "transparent"
+        CustomAfter.style.color = "var(--colorAccent)"
     }
  })
 
@@ -227,15 +275,31 @@ Yellow.addEventListener('change', (event) => {
     }
   })
 
-  Compact.addEventListener('change', (event) => {
+Compact.addEventListener('change', (event) => {
     if (Compact.checked == true) {
-        ComapctMode('true')
         localStorage.setItem("Compact", 'true')
+        ComapctMode('true')
     } else {
-        ComapctMode('false')
         localStorage.setItem("Compact", 'false')
+        ComapctMode('false')
     }
 })
+
+SCompact.addEventListener('change', (event) => {
+    if (SCompact.checked == true) {
+        localStorage.setItem("Compact", 'Smaller')
+        ComapctMode('true')
+    } else {
+        if (Compact.checked == true) {
+            localStorage.setItem("Compact", 'true')
+            ComapctMode('true')
+        } else {
+            localStorage.setItem("Compact", 'false')
+            ComapctMode('false')
+        }
+    }
+})
+
 
 window.addEventListener('keydown', function (event) {
 

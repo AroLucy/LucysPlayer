@@ -11,7 +11,7 @@
   <body>
 	<div id="title-bar">
 		<div id="title">
-			<span id="VerText"><span id="Beta">Beta</span> 0.1.6</span>
+			<span id="VerText"><span id="Beta">Beta</span> 0.1.7</span>
 		</div>
 		 <div id="title-bar-btns">
 			  <button onclick="window.close()" id="close-button"><img src="media/close.svg" id="Close" style="width: 0.7em;"></button>
@@ -45,7 +45,7 @@
     </main>
 	<div id="Settings">
 		<div id="SettingsContent">
-			<h1>Settings</h1>
+			<h1 id="SettTit">Settings</h1>
 			<h2 id="Display">Display</h2>
 			<p id="DarkTit">Enable Darkmode</p>
 			<label class="switch">
@@ -64,11 +64,16 @@
 				<label for="Yellow">Yellow</label>
 			</div> 
 			<br>
-			<input class="target" id="Custom" type="text" placeholder="Custom Color (Hex)"/>
-			<button class="execute SettingsButton" id="CustomB">Set Custom Color</button>
-			<p>Compact Mode</p>
+			<input id="Custom" type="color" onchange="color(this.value)"/>
+			<!--<button class="execute SettingsButton" id="CustomB">Set Custom Color</button>-->
+			<p id="CompSwit">Compact Mode</p>
 			<label class="switch">
 				<input id="Compact" type="checkbox">
+				<span class="slider round"></span>
+			</label>
+			<p>Smaller Compact Mode</p>
+			<label class="switch">
+				<input id="SCompact" type="checkbox">
 				<span class="slider round"></span>
 			</label>
 			<p id="VerTit">Hide Version Text</p>

@@ -1,3 +1,11 @@
+sheet = document.styleSheets[0];
+rules = sheet.cssRules
+CustomAfter = rules[67]
+Purple = document.getElementById("Purple")
+Blue = document.getElementById("Blue")
+Green = document.getElementById("Green")
+Yellow = document.getElementById("Yellow")
+
 class Color {
     constructor(r, g, b) {
       this.set(r, g, b);
@@ -292,27 +300,28 @@ class Color {
       : null;
   }
   
-  $(document).ready(() => {
-    $('button.execute').click(() => {
-      const rgb = hexToRgb($('input.target').val());
-      if (rgb.length !== 3) {
-        alert('Invalid format!');
-        return;
-      }
+//  $(document).ready(() => {
+//    $('button.execute').click(() => {
+//      const rgb = hexToRgb($('input.target').val());
+//      if (rgb.length !== 3) {
+//        alert('Invalid format!');
+ //       return;
+  //    }
   
-      const color = new Color(rgb[0], rgb[1], rgb[2]);
-      const solver = new Solver(color);
-      const result = solver.solve();
+    //  const color = new Color(rgb[0], rgb[1], rgb[2]);
+      //const solver = new Solver(color);
+//      const result = solver.solve();
 
-      ChangeAccent(($('input.target').val()), result.filter)
-      if (($('input.target').val()) !== null) { 
-        localStorage.setItem('Accent',($('input.target').val()))
-      }
-    });
-  });
+  //    ChangeAccent(($('input.target').val()), result.filter)
+     // if (($('input.target').val()) !== null) { 
+   //     localStorage.setItem('Accent',($('input.target').val()))
+     // }
+   // });
+ // });
   
 function color(Hex) {
-    const rgb = hexToRgb(Hex)
+    hex = Hex.replace("#", "")
+    const rgb = hexToRgb(hex)
     if (rgb.length !== 3) {
         alert('Invalid format!');
         return;
@@ -322,6 +331,20 @@ function color(Hex) {
     const solver = new Solver(color);
     const result = solver.solve();
 
-    ChangeAccent(Hex, result.filter)
-    localStorage.setItem('Accent', Hex)
+    ChangeAccent(hex, result.filter)
+    localStorage.setItem('Accent', hex)
+    CustomAfter.style.background = "#" + hex + "33"
+    CustomAfter.style.color = "white"
+    if (Green.checked == true) {
+      Green.checked = false
+  } 
+  if (Purple.checked == true) {
+      Purple.checked = false
+  } 
+  if (Blue.checked == true) {
+      Blue.checked = false
+  } 
+  if (Yellow.checked == true) {
+    Yellow.checked = false
+  }
 };

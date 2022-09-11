@@ -187,16 +187,14 @@ footer {
 }
 
 #Custom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3em;
-    color: black;
-    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
     background: white;
+    padding: 0px;
     border: none;
+    -webkit-appearance: none;
     border-radius: 2em;
-    transition: all 1s;
+    height: 2.9em;
+    width: 0em;
 }
 
 .SettingsForm {
@@ -443,7 +441,7 @@ input[type="checkbox"]:checked#Yellow + label {
 
 #SettingsContent {
     display: flex;
-    height: 120vh;
+    height: 130vh;
     flex-direction: column;
     justify-content: center;
     align-content: center;
@@ -467,4 +465,22 @@ input[type="checkbox"]:checked#Yellow + label {
 
 .SettingsButton {
     background: var(--accent);
+}
+
+#Custom::after {
+    content: "Custom";
+    color: var(--colorAccent);
+    background: transparent;
+    position: absolute;
+    height: 2.6em;
+    width: 4.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+    font-family: 'Roboto', sans-serif;
+    padding: 0em;
+    top: 25.72em;
+    left: 6.5em;
+    border: var(--colorAccent) solid;
 }
