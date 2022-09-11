@@ -13,7 +13,13 @@
 A Spotify controller I made with node.js and Electron
 
 # Build 
-```npm i
+```shell
+npm i
 npm i electron -g
 npm i electron-builder -g
 npm run dist
+```
+
+# Credits 
+
+[clout2k](https://github.com/clout2k) - Help with code and suggestions  
