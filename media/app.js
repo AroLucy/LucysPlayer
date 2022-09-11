@@ -63,7 +63,7 @@ function ComapctMode(state) {
             document.getElementById("Display").style.display = "none"
             document.getElementById("Colors").style.display = "none"
             document.getElementById("Custom").style.display = "none"
-            document.getElementById("CustomB").style.display = "none"
+            //document.getElementById("CustomB").style.display = "none"
             document.getElementById("SettTit").style.display = "block"
         } else {
             window.resizeTo(300,200)
@@ -85,7 +85,7 @@ function ComapctMode(state) {
             document.getElementById("Display").style.display = "none"
             document.getElementById("Colors").style.display = "none"
             document.getElementById("Custom").style.display = "none"
-            document.getElementById("CustomB").style.display = "none"
+            //document.getElementById("CustomB").style.display = "none"
             document.getElementById("SettTit").style.display = "none"
         }
     } else if (state) {
@@ -109,7 +109,7 @@ function ComapctMode(state) {
         document.getElementById("CompSwit").style.display = "block"
         document.getElementById("Colors").style.display = "block"
         document.getElementById("Custom").style.display = "block"
-        document.getElementById("CustomB").style.display = "block"
+        //document.getElementById("CustomB").style.display = "block"
     }
 }
 
