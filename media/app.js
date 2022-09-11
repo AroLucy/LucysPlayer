@@ -12,13 +12,13 @@ Green = document.getElementById("Green")
 Yellow = document.getElementById("Yellow")
 
 PurpleH = "8f8bff"
-PurpleR = "210"
+PurpleR = "filter: invert(70%) sepia(93%) saturate(3651%) hue-rotate(210deg) brightness(99%) contrast(105%)"
 BlueH = "06bdff"
-BlueR = "170"
+BlueR = "filter: invert(67%) sepia(79%) saturate(4391%) hue-rotate(168deg) brightness(109%) contrast(101%)"
 GreenH = "00d234"
-GreenR = "90"
+GreenR = "filter: invert(55%) sepia(73%) saturate(975%) hue-rotate(88deg) brightness(93%) contrast(108%)"
 YellowH = "cb9c00"
-YellowR = "18"
+YellowR = "filter: invert(71%) sepia(100%) saturate(3416%) hue-rotate(16deg) brightness(97%) contrast(101%)"
 
 sheet = document.styleSheets[0];
 rules = sheet.cssRules
@@ -55,6 +55,8 @@ function ComapctMode(state) {
         document.getElementById("VerTit").style.display = "none"
         document.getElementById("Display").style.display = "none"
         document.getElementById("Colors").style.display = "none"
+        document.getElementById("Custom").style.display = "none"
+        document.getElementById("CustomB").style.display = "none"
     } else {
         window.resizeTo(300,550)
         document.getElementsByTagName("main")[0].style.height = "31em"
@@ -69,16 +71,18 @@ function ComapctMode(state) {
         document.getElementById("VerTit").style.display = "block"
         document.getElementById("Display").style.display = "block"
         document.getElementById("Colors").style.display = "block"
+        document.getElementById("Custom").style.display = "block"
+        document.getElementById("CustomB").style.display = "block"
     }
 }
 
 function ChangeAccent(Hex, HueRotate) {
     Root.style = "--body: #fff; --text: #000; --shadow: #777; --accent: #efefef; --colorAccent: #"+Hex+";"
     Darkmode.style = "--body: #222; --text: #fff; --shadow: #555; --accent: #2b2b2b; --colorAccent: #"+Hex+";"
-    ControlCSS.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
-    Active.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
-    ActiveHover.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg) brightness(0.75) !important;"
-    SettingsButton.style = "filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
+    ControlCSS.style = HueRotate//"filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
+    Active.style = HueRotate//"filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
+    ActiveHover.style = HueRotate + "brightness(0.75) !important"//"filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg) brightness(0.75) !important;"
+    SettingsButton.style = HueRotate//"filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate("+HueRotate+"deg);"
 }
 
 if (localStorage.getItem("Compact") == 'true') {
@@ -100,6 +104,12 @@ if (Accent == undefined) {
     ChangeAccent(GreenH,GreenR)
 } else if (Accent == "Yellow") {
     Yellow.checked = true
+} else if (Accent !== null) {
+    color(Accent)
+    document.getElementById("Custom").value = Accent
+} else if (Accent !== null) {
+    Purple.checked = true
+    ChangeAccent(PurpleH,PurpleR)
 }
 
 if (VerText == undefined) {

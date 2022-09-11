@@ -144,7 +144,7 @@ footer {
 
 #DoneD {
     padding: 1em;
-    position: absolute;
+    position: sticky;
     bottom: 1em;
 }
 
@@ -186,7 +186,7 @@ footer {
     transition: all 1s;
 }
 
-.SettingsInput {
+#Custom {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,11 +218,15 @@ footer {
 }
 
 #track {
-    font-size: 2em;
+    font-size: 1.7em;
+    max-height: 2.5em;
+    overflow: hidden;
 }
 
 #album {
     display: none;
+    height: 1em;
+    overflow: hidden;
 }
 
 #artist {
@@ -429,4 +433,38 @@ input[type="checkbox"]:checked#Yellow + label {
     padding-right: 0.2em;
     font-weight: bold;
     color: white;
+}
+
+/* Settings 2, I'm too lazy to add to the first */
+
+#Settings {
+    overflow-y: scroll;
+}
+
+#SettingsContent {
+    display: flex;
+    height: 120vh;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#Colors {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#SettingsExtender {
+    height: 0em
+}
+
+#Settings::-webkit-scrollbar {
+    display: none;
+  }
+
+.SettingsButton {
+    background: var(--accent);
 }

@@ -11,7 +11,7 @@
   <body>
 	<div id="title-bar">
 		<div id="title">
-			<span id="VerText"><span id="Beta">Beta</span> 0.1.5</span>
+			<span id="VerText"><span id="Beta">Beta</span> 0.1.6</span>
 		</div>
 		 <div id="title-bar-btns">
 			  <button onclick="window.close()" id="close-button"><img src="media/close.svg" id="Close" style="width: 0.7em;"></button>
@@ -44,34 +44,40 @@
 
     </main>
 	<div id="Settings">
-		<h2>Settings</h2>
-		<h3 id="Display">Display</h3>
-		<p id="DarkTit">Enable Darkmode</p>
-		<label class="switch">
-			<input id="LightSwitch" type="checkbox">
-			<span class="slider round"></span>
-		</label>
-		<p id="AcceTit">Accent Color</p>
-		<div id="Colors">
-			<input id="Purple" type="checkbox">
-			<label for="Purple">Purple</label>
-			<input id="Blue" type="checkbox">
-			<label for="Blue">Blue</label>
-			<input id="Green" type="checkbox">
-			<label for="Green">Green</label>
-			<input id="Yellow" type="checkbox">
-			<label for="Yellow">Yellow</label>
-		</div> 
-		<p>Compact Mode</p>
-		<label class="switch">
-			<input id="Compact" type="checkbox">
-			<span class="slider round"></span>
-		</label>
-		<p id="VerTit">Hide Version Text</p>
-		<label class="switch">
-			<input id="VerTextB" type="checkbox">
-			<span class="slider round"></span>
-		</label>
+		<div id="SettingsContent">
+			<h1>Settings</h1>
+			<h2 id="Display">Display</h2>
+			<p id="DarkTit">Enable Darkmode</p>
+			<label class="switch">
+				<input id="LightSwitch" type="checkbox">
+				<span class="slider round"></span>
+			</label>
+			<p id="AcceTit">Accent Color</p>
+			<div id="Colors">
+				<input id="Purple" type="checkbox">
+				<label for="Purple">Purple</label>
+				<input id="Blue" type="checkbox">
+				<label for="Blue">Blue</label>
+				<input id="Green" type="checkbox">
+				<label for="Green">Green</label>
+				<input id="Yellow" type="checkbox">
+				<label for="Yellow">Yellow</label>
+			</div> 
+			<br>
+			<input class="target" id="Custom" type="text" placeholder="Custom Color (Hex)"/>
+			<button class="execute SettingsButton" id="CustomB">Set Custom Color</button>
+			<p>Compact Mode</p>
+			<label class="switch">
+				<input id="Compact" type="checkbox">
+				<span class="slider round"></span>
+			</label>
+			<p id="VerTit">Hide Version Text</p>
+			<label class="switch">
+				<input id="VerTextB" type="checkbox">
+				<span class="slider round"></span>
+			</label>
+			<p id="SettingsExtender"></p>
+		</div>
 		<div id="DoneD">
 			<button class="SettingsButton" id="Done" onclick="Settings()">Done</button>
 		</div>
@@ -81,6 +87,7 @@
 	    <button id="SettingsButton" onclick="Settings()"><img id="SettingsIconImg" src="media/settings.svg"></button>
 	</footer>
 
+	<script src="color.js"></script>
     <script src="media/app.js"></script>
     <script src="Spotify.js"></script>
   </body>
