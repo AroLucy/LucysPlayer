@@ -1,6 +1,6 @@
 {
     "name": "lucys-player",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "main": "main.js",
     "author": "LucyUwI",
     "description": "A Spotify controller I made with node.js and Electron",

@@ -13,6 +13,8 @@ const SpotifyWebApi = require('spotify-web-api-node');
 var cookieParser = require('cookie-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+pinned = false
+
 if (!fs.existsSync(process.env.APPDATA + "\\Lucy's Player\\Data")){
     fs.mkdirSync(process.env.APPDATA + "\\Lucy's Player\\Data");
 	a = {"A":"A"}
@@ -172,6 +174,17 @@ router.post('/DataListener', urlencodedParser, function (req, res) {
 		AuthJ = fs.readFileSync(process.env.APPDATA + "\\Lucy's Player\\Data\\Data.json")
 		Auth = JSON.parse(AuthJ)
 		res.json(Auth)
+	}
+	if (req.body.type == "pin") {
+		if (pinned !== true) {
+			win.setAlwaysOnTop(true, "screen")
+			pinned = true
+			res.send('pinned')
+		} else {
+			win.setAlwaysOnTop(false, "screen")
+			pinned = false
+			res.send('unpinned')
+		}
 	}
 	//res.end("no");
 });

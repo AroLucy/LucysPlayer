@@ -5,6 +5,7 @@ LightSwitch = document.getElementById('LightSwitch')
 VerTextB = document.getElementById('VerTextB')
 body = document.getElementById("html")
 Compact = document.getElementById("Compact")
+pinned = 'false'
 
 Purple = document.getElementById("Purple")
 Blue = document.getElementById("Blue")
@@ -38,6 +39,7 @@ function Toggle() {
     document.getElementById("Playback").classList.toggle("DarkIcon")
     document.getElementById("FF").classList.toggle("DarkIcon")
     document.getElementById("Close").classList.toggle("DarkIcon")
+    document.getElementById("Pin").classList.toggle("DarkIcon")
     document.getElementById("SettingsIconImg").classList.toggle("DarkIcon")
 }
 
@@ -311,3 +313,12 @@ window.addEventListener('keydown', function (event) {
     }
 
 });
+
+async function pin() {
+    a = await $.post("http://localhost:8888/DataListener",{'type': "pin"})
+    if (a == 'pinned') {
+        document.getElementById("Pin").src = "unpin.svg"
+    } else {
+        document.getElementById("Pin").src = "pin.svg"
+    }
+}
