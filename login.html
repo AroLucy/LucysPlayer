@@ -1,9 +1,42 @@
-<html>
+<html id="html">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
   <script src="login.js"></script>
+ 
+  
+  <link rel="stylesheet" type="text/css" href="Styles/Style.css">
+  <title>Login</title>
+</head>
+<div id="title-bar">
+  <div id="title">
+    <span id="VerText"><span id="Beta">Beta</span></span>
+  </div>
+   <div id="title-bar-btns">
+      <button onclick="window.close()" id="close-button"><img src="Images/Close.svg" id="Close" style="width: 0.7em;"></button>
+   </div>
+</div>
+<body id="">
+  <main>
+    <h1>Welcome!</h1>
+    <p>Go to <a target="_blank" href="https://developer.spotify.com/dashboard">https://developer.spotify.com/dashboard</a></p>
+    <p>Create an app (Call it anything you want)</p>
+    <p style=user-select:text;>Press 'Edit Settings' and add 'http://localhost:8888/callback' to Redirect URIs</p>
+    <p>Copy Client ID and Client Secret and Paste them into the corisponting text fields</p>
+    <div style="display:flex">
+    <input class="SettingsInput" id="ClientID" placeholder="Client ID" size="40" type="TEXT" />
+    <input class="SettingsInput" id="ClientSecret" size="40" placeholder="Client Secret" type="password" />
+    </div>
+    <br>
+    <input class="SettingsButton" id="submit" type="button" value="Submit" />
+    <br>
+  </main>
+  <script src="Scripts/Login.js"></script>
   <script>
-      window.resizeTo(700,600)
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.getElementById("html").classList.toggle("darkmode")
+      document.getElementById("Close").classList.toggle("DarkIcon")
+    }
+      window.resizeTo(700,550)
       $(document).ready(function(){
         var ClientID,ClientSecret;
         $("#submit").click(function(){
@@ -17,35 +50,5 @@
         });
       });
   </script>
-  
-  <link rel="stylesheet" type="text/css" href="media/style.css">
-  <title>Login</title>
-</head>
-<div id="title-bar">
-  <div id="title">
-    <span style="vertical-align: middle;">
-    </span>
-    
-  </div>
-   <div id="title-bar-btns">
-      <button onclick="window.close()" id="close-button">x</button>
-   </div>
-</div>
-<body id="html">
-  <main>
-    <h1>Welcome!</h1>
-    <p>Go to <a target="_blank" href="https://developer.spotify.com/dashboard">https://developer.spotify.com/dashboard</a></p>
-    <p>Create an app (Call it anything you want)</p>
-    <p style=user-select:text;>Press 'Edit Settings' and add 'http://localhost:8888/callback' to Redirect URIs</p>
-    <p>Copy Client ID and Client Secret and Paste them into the corisponting text fields</p>
-
-    <input class="SettingsInput" id="ClientID" placeholder="Client ID" size="40" type="TEXT" />
-    <input class="SettingsInput" id="ClientSecret" size="40" placeholder="Client Secret" type="password" />
-    <br>
-    <input class="SettingsButton" id="submit" type="button" value="Submit" />
-    <br>
-  </main>
-  <script src="media/app.js"></script>
-  <script src="login.js"></script>
 </body>
 </html>

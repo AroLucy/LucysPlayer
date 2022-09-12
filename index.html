@@ -5,17 +5,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
 	<base href="./">
 	<meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="stylenew.css">
-    <link rel="icon" href="media/me.ico">
+    <link rel="stylesheet" type="text/css" href="Styles/Style.css">
+    <link rel="icon" href="Images/me.ico">
   </head>
   <body>
 	<div id="title-bar">
 		<div id="title">
-			<span id="VerText"><span id="Beta">Beta</span> 0.1.8</span>
+			<span id="VerText"><span id="Beta">Beta</span> 0.1.9</span>
 		</div>
 		 <div id="title-bar-btns">
-				<button onclick="pin()" id="pin-button"><img src="pin.svg" id="Pin" style="width: 0.7em;"></button>
-				<button onclick="window.close()" id="close-button"><img src="media/close.svg" id="Close" style="width: 0.7em;"></button>
+				<button onclick="pin()" id="pin-button"><img src="Images/Pin.svg" id="Pin" style="width: 0.7em;"></button>
+				<button onclick="window.close()" id="close-button"><img src="Images/Close.svg" id="Close" style="width: 0.7em;"></button>
 		 </div>
 	</div>
 
@@ -30,16 +30,16 @@
 
 		<div id="progressdiv">
 			<p id="progress" for="length">0:00</p>
-			<input type="range" id="length" max="0" value="1" onchange="Seek()"></input>
+			<input type="range" id="length" max="0" value="1" onchange="Seek(this.value)"></input>
 			<p id="timelength" for="length">0:00</p>
 		</div>
 
 		<div id="controls">
-			<button id="LoopB" onclick="Loop()"><img id="Loop" src="media/loopall.svg"></button>
-			<button id="RWb" onclick="Previous()"><img id="RW" src="media/prev.svg"></button>
-			<button id="PlaybackB" accesskey="space" onclick="Playback()"><img id="Playback" src="media/play.svg"></button>
-			<button id="FFb" onclick="Next()"><img id="FF" src="media/next.svg"></button>
-			<button id="ShuffleB" onclick="Shuffle()"><img id="Shuffle" src="media/shuffle.svg"></button>
+			<button id="LoopB" onclick="Loop()"><img id="Loop" src="Images/Loopall.svg"></button>
+			<button id="RWb" onclick="Previous()"><img id="RW" src="Images/Previous.svg"></button>
+			<button id="PlaybackB" accesskey="space" onclick="Playback()"><img id="Playback" src="Images/Play.svg"></button>
+			<button id="FFb" onclick="Next()"><img id="FF" src="Images/Next.svg"></button>
+			<button id="ShuffleB" onclick="Shuffle()"><img id="Shuffle" src="Images/Shuffle.svg"></button>
 		</div>
 
 
@@ -82,6 +82,11 @@
 				<input id="VerTextB" type="checkbox">
 				<span class="slider round"></span>
 			</label>
+			<h2 id="StatsFMTit">Stats.fm</h2>
+			<p id="StatsFMDet">Requires Stats.fm <span id="Beta">Plus</span></p>
+			<input type="text" id="Username" class="SettingsInput" placeholder="Stats.fm Username">
+			<br>
+			<button class="SettingsButton" id="StatsFMBut" onclick="GetStatsFMUsername()">Submit</button>
 			<p id="SettingsExtender"></p>
 		</div>
 		<div id="DoneD">
@@ -90,11 +95,16 @@
     </div>
 
 	<footer>
-	    <button id="SettingsButton" onclick="Settings()"><img id="SettingsIconImg" src="media/settings.svg"></button>
+		<p id="PlayCount"></p>
+	    <button id="SettingsButton" onclick="Settings()"><img id="SettingsIconImg" src="Images/Settings.svg"></button>
 	</footer>
 
-	<script src="color.js"></script>
-    <script src="media/app.js"></script>
-    <script src="Spotify.js"></script>
+	<script src="Scripts/Color.js"></script>
+    <script src="Scripts/Theme.js"></script>
+	<script src="Scripts/AccentColor.js"></script>
+	<script src="Scripts/Compact.js"></script>
+	<script src="Scripts/Settings.js"></script>
+    <script src="Scripts/Spotify.js"></script>
+	<script src="Scripts/Statsfm.js"></script>
   </body>
 </html>

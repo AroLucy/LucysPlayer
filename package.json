@@ -1,6 +1,6 @@
 {
     "name": "lucys-player",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "main": "main.js",
     "author": "LucyUwI",
     "description": "A Spotify controller I made with node.js and Electron",
@@ -24,10 +24,11 @@
     "build": {
         "appId": "lucys-spotify-controler",
         "mac": {
-            "category": "music"
+            "category": "Music"
         },
         "linux": {
             "icon": "build/icon.png",
+            "category": "Music",
             "target": [
                 "deb",
                 "snap",
