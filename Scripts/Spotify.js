@@ -105,7 +105,7 @@ async function GetData() {
 			document.getElementById("Loop").classList.remove("Active")
 		}
 		if (NowPlay.repeat_state == "track") {
-			document.getElementById("Loop").src = "Images/oopOne.svg"
+			document.getElementById("Loop").src = "Images/LoopOne.svg"
 		} else {
 			document.getElementById("Loop").src = "Images/LoopAll.svg"
 		}
