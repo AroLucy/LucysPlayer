@@ -6,7 +6,7 @@ function msToTime(duration) {
 	return minutes + ":" + seconds
 }
 
-async function ClientCheck() {
+(async () => {
 	CData = await $.post("http://localhost:8888/DataListener", { 'type': "client" }, function (data) {
 	});
 	RData = await $.post("http://localhost:8888/DataListener", { 'type': "refresh" }, function (data) {
@@ -18,9 +18,11 @@ async function ClientCheck() {
 	} else if (RData.refresh === undefined) {
 		window.open("login.html")
 	}
-}
+})()
 
-ClientCheck()
+async function AA() {Data = await $.post("http://localhost:8888/DataListener", {'type': "auth"}, function(data) {});LastFMAuth = Data.LastFMAuth}
+AA()
+
 
 async function GetData() {
 	NowPlay = await $.post("http://localhost:8888/Spotify", { 'type': 'Data' })
