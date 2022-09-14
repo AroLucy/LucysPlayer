@@ -16,8 +16,8 @@ function Toggle() {
 
 if (Toggled == 'yes') {
     LightSwitch.checked = true
-    Toggle() 
-} 
+    Toggle()
+}
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     if (localStorage.getItem('DarkMode') == undefined) {

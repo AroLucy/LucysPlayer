@@ -1,5 +1,5 @@
 async function Authcode() {
-    var generateRandomString = function(length) {
+    var generateRandomString = function (length) {
         var text = '';
         var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -10,11 +10,11 @@ async function Authcode() {
         return text;
     };
 
-    Client = await $.post("http://localhost:8888/DataListener",{'type': "client"}, function(data){
-	});
+    Client = await $.post("http://localhost:8888/DataListener", { 'type': "client" }, function (data) {
+    });
 
     scopes = ['user-read-currently-playing', 'user-read-playback-state', 'user-modify-playback-state', 'user-read-recently-played'],
-    clientId = Client.CLIENT_ID;
+        clientId = Client.CLIENT_ID;
     clientSecret = Client.CLIENT_SECRET;
     redirectUri = 'http://localhost:8888/callback';
     state = generateRandomString(16);

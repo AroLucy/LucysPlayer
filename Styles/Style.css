@@ -1,270 +1,265 @@
 /* Import Font */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@100&display=swap");
 
 /* Global Colors */
 
 :root {
-    --body: #fff;
-    --text: #000;
-    --shadow: #777;
-    --accent: #efefef;
-    --colorAccent: #8f8bff;
+  --body: #fff;
+  --text: #000;
+  --shadow: #777;
+  --accent: #efefef;
+  --colorAccent: #8f8bff;
 }
 
 .darkmode {
-    --body: #222;
-    --text: #fff;
-    --shadow: #555;
-    --accent: #2b2b2b;
-    --colorAccent: #8f8bff;
+  --body: #222;
+  --text: #fff;
+  --shadow: #555;
+  --accent: #2b2b2b;
+  --colorAccent: #8f8bff;
 }
 
 /* Title Bar */
 
 #title-bar {
-    -webkit-app-region: drag;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    vertical-align: middle;
-    background-color: var(--body);
-    padding: none;
-    margin: 0px;
-    z-index: 1;
+  -webkit-app-region: drag;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  background-color: var(--body);
+  padding: none;
+  margin: 0px;
+  z-index: 1;
 }
 
 #title {
-    position: fixed;
-    top: 0px;
-    left: 6px;
-    color: #999;
-
+  position: fixed;
+  top: 0px;
+  left: 6px;
+  color: #999;
 }
 
 #title-bar-btns {
-    -webkit-app-region: no-drag;
-    position: fixed;
-    top: 0.4em;
-    right: 0.4em;
-    display: flex;
+  -webkit-app-region: no-drag;
+  position: fixed;
+  top: 0.4em;
+  right: 0.4em;
+  display: flex;
 }
 
 #title-bar-btns > button {
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1em;
-    font-family: Roboto;
-    width: 1.25em;
-    height: 1.25em;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    right: 0.5em;
-    transition: all 0.25s
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1em;
+  font-family: Roboto;
+  width: 1.25em;
+  height: 1.25em;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  right: 0.5em;
+  transition: all 0.25s;
 }
 
 #title-bar-btns > button:hover > img:not(.DarkIcon) {
-    filter: invert();
-} 
+  filter: invert();
+}
 
 #title-bar-btns > button:hover {
-    background: red;
-    border-radius: 1em;
-    border: none;
-    color: white;
-    transition: all 0.25s
+  background: red;
+  border-radius: 1em;
+  border: none;
+  color: white;
+  transition: all 0.25s;
 }
 
 /* Main Styles */
 
 html,
 body {
-    height: 100%;
-    margin: 0px;
-    background: transparent;
-    color: var(--text);
-    transition: all 0.25s;
-    padding: 0px;
-    overflow: hidden;
-    border-radius: 0.75em
+  height: 100%;
+  margin: 0px;
+  background: transparent;
+  color: var(--text);
+  transition: all 0.25s;
+  padding: 0px;
+  overflow: hidden;
+  border-radius: 0.75em;
 }
 
 main {
-    display: flex;
-    height: 31em;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background: var(--body);
-    padding: 1em;
+  display: flex;
+  height: 31em;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: var(--body);
+  padding: 1em;
 }
 
 * {
-    user-select: none;
+  user-select: none;
 }
 
-
 main > * {
-    filter: drop-shadow(0px 0px 5px var(--shadow));
+  filter: drop-shadow(0px 0px 5px var(--shadow));
 }
 
 footer {
-    position: fixed;
-    display: flex;
-    flex-direction: column-reverse;
-    bottom: 0%;
-    width: 100vw;
-    filter: drop-shadow(0px 0px 5px var(--shadow));
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  bottom: 0%;
+  width: 100vw;
+  filter: drop-shadow(0px 0px 5px var(--shadow));
 }
 
 /* Test Styles */
 
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Settings */
 
 #SettingsButton {
-    position: absolute;
-    right: 1em;
-    bottom: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    background: transparent;
-    border: none;
-    border-radius: 2em;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  background: transparent;
+  border: none;
+  border-radius: 2em;
 }
 
 #DoneD {
-    padding: 1em;
-    position: sticky;
-    bottom: 1em;
+  padding: 1em;
+  position: sticky;
+  bottom: 1em;
 }
 
-
 #Settings {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    bottom: 0vh;
-    left: 0vw;
-    background: var(--accent);
-    width: 100vw;
-    height: 0vh;
-    z-index: 1;
-    border-radius: 1em;
-    /*filter: drop-shadow(0px 0px 6px var(--shadow));*/
-    transition: all 0.5s;
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0vh;
+  left: 0vw;
+  background: var(--accent);
+  width: 100vw;
+  height: 0vh;
+  z-index: 1;
+  border-radius: 1em;
+  /*filter: drop-shadow(0px 0px 6px var(--shadow));*/
+  transition: all 0.5s;
 }
 
 #Settings > * {
-    filter: drop-shadow(0px 0px 6px var(--shadow));
+  filter: drop-shadow(0px 0px 6px var(--shadow));
 }
 
 .SettingsButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2em;
-    color: var(--text);
-    font-family: 'Open Sans', sans-serif;
-    background: transparent;
-    border: none;
-    border-radius: 2em;
-    transition: all 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  color: var(--text);
+  font-family: "Open Sans", sans-serif;
+  background: transparent;
+  border: none;
+  border-radius: 2em;
+  transition: all 1s;
 }
 .SettingsButton:hover {
-    background: var(--colorAccent);
-    transition: all 1s;
+  background: var(--colorAccent);
+  transition: all 1s;
 }
 
 #Custom {
-    overflow: hidden;
-    background: white;
-    padding: 0px;
-    border: none;
-    -webkit-appearance: none;
-    border-radius: 2em;
-    height: 2.9em;
-    width: 0em;
+  overflow: hidden;
+  background: white;
+  padding: 0px;
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 2em;
+  height: 2.9em;
+  width: 0em;
 }
 
 .SettingsForm {
-    display: flex;
+  display: flex;
 }
 
 #SettingsButton:hover > img {
-    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg) !important
+  filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg) !important;
 }
 
 /* Spotify */
 
-
 #spotify {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
 }
 
 #track {
-    font-size: 1.7em;
-    max-height: 2.5em;
-    overflow: hidden;
+  font-size: 1.7em;
+  max-height: 2.5em;
+  overflow: hidden;
 }
 
 #album {
-    display: none;
-    height: 1em;
-    overflow: hidden;
+  display: none;
+  height: 1em;
+  overflow: hidden;
 }
 
 #artist {
-    font-size: 1em;
+  font-size: 1em;
 }
 
-
 #art {
-    height: 10em;
-    width: 10em;
-    pointer-events: none;
-    border-radius: 1em;
+  height: 10em;
+  width: 10em;
+  pointer-events: none;
+  border-radius: 1em;
 }
 
 #progress {
-    font-size: 0.75em;
+  font-size: 0.75em;
 }
 #controls {
-    display: flex;
+  display: flex;
 }
 
 #progressdiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#progressdiv > p{
-    font-size: 0.75em;
-    padding: 1em;
+#progressdiv > p {
+  font-size: 0.75em;
+  padding: 1em;
 }
 
 /* Control Buttons */
 
 #controls > button {
-    background: none;
-    border: none;
+  background: none;
+  border: none;
 }
 
 .DarkIcon {
-    filter: invert()
+  filter: invert();
 }
 
 #ShuffleB:hover > img,
@@ -272,245 +267,245 @@ footer {
 #RWb:hover > img,
 #PlaybackB:hover > img,
 #LoopB:hover > img {
-    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg)
+  filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg);
 }
 
 .Active {
-    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg)
+  filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg);
 }
 
 #ShuffleB:hover img.Active,
 #LoopB:hover img.Active {
-    filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg) brightness(0.75) !important
+  filter: invert(50%) sepia(100%) saturate(1000%) hue-rotate(210deg)
+    brightness(0.75) !important;
 }
 
- /* Switches */
+/* Switches */
 .switch {
-    position: relative;
-    display: inline;
-    width: 3em;
-    height: 1.5em;
+  position: relative;
+  display: inline;
+  width: 3em;
+  height: 1.5em;
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
- 
+
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
-  
+
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.5em;
-    width: 1.5em;
-    left: 0px;
-    bottom: 0px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 1.5em;
+  left: 0px;
+  bottom: 0px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-    background-color: var(--colorAccent);
+  background-color: var(--colorAccent);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px var(--colorAccent);
+  box-shadow: 0 0 1px var(--colorAccent);
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 .slider.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .slider.round:before {
   border-radius: 50%;
-} 
+}
 
 /* Slider */
 
-input[type=range] {
-    border: none;
-    height: 0.8em;
-    border-radius: 10em;
-    overflow:hidden;
-    -webkit-appearance: none;
-}
-            
-input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 0.8em;
-    width: 0.8em;
-    background: var(--colorAccent);
-    box-shadow: -85px 0 0 80px var(--colorAccent);
-    border-radius: 4em;
-    filter: drop-shadow(0 0 2em #222)
+input[type="range"] {
+  border: none;
+  height: 0.8em;
+  border-radius: 10em;
+  overflow: hidden;
+  -webkit-appearance: none;
 }
 
-input[type='range']::-webkit-slider-thumb:hover {
-    background: #fff;
-    filter: drop-shadow(0 0 2em #222)
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 0.8em;
+  width: 0.8em;
+  background: var(--colorAccent);
+  box-shadow: -85px 0 0 80px var(--colorAccent);
+  border-radius: 4em;
+  filter: drop-shadow(0 0 2em #222);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #fff;
+  filter: drop-shadow(0 0 2em #222);
 }
 
 /* Accent Color Picker */
 
-input[type="checkbox"]:not(:checked), 
+input[type="checkbox"]:not(:checked),
 input[type="checkbox"]:checked {
-    position: absolute;
-    left: -9999%;
+  position: absolute;
+  left: -9999%;
 }
 
 input[type="checkbox"] + label {
-    display: inline-block;
-    padding: 7px;
-    cursor: pointer;
-    background-color: transparent;
-    margin-bottom: 10px;
-    border-radius: 3em;
+  display: inline-block;
+  padding: 7px;
+  cursor: pointer;
+  background-color: transparent;
+  margin-bottom: 10px;
+  border-radius: 3em;
 }
 
-
 input[type="checkbox"]#Purple + label {
-    border: 3px solid #8f8bff;
-    color: #8f8bff;
-    border-radius: 3em;
+  border: 3px solid #8f8bff;
+  color: #8f8bff;
+  border-radius: 3em;
 }
 
 input[type="checkbox"]:checked#Purple + label {
-    background-color: #8f8bff33;
-    color: white;
+  background-color: #8f8bff33;
+  color: white;
 }
 
 input[type="checkbox"]#Blue + label {
-    border: 3px solid #06bdff;
-    color: #06bdff;
-    border-radius: 3em;
+  border: 3px solid #06bdff;
+  color: #06bdff;
+  border-radius: 3em;
 }
 
 input[type="checkbox"]:checked#Blue + label {
-    background-color: #06bdff33;
-    color: white;
+  background-color: #06bdff33;
+  color: white;
 }
 
 input[type="checkbox"]#Green + label {
-    border: 3px solid #00d234;
-    color: #00d234;
-    border-radius: 3em;
+  border: 3px solid #00d234;
+  color: #00d234;
+  border-radius: 3em;
 }
 
 input[type="checkbox"]:checked#Green + label {
-    background-color: #00d23433;
-    color: white;
+  background-color: #00d23433;
+  color: white;
 }
 
 input[type="checkbox"]#Yellow + label {
-    border: 3px solid #cb9c00;
-    color: #cb9c00;
-    border-radius: 3em;
+  border: 3px solid #cb9c00;
+  color: #cb9c00;
+  border-radius: 3em;
 }
 
 input[type="checkbox"]:checked#Yellow + label {
-    background-color: #cb9c0033;
-    color: white;
+  background-color: #cb9c0033;
+  color: white;
 }
 
 #Beta {
-    background: var(--colorAccent);
-    border-radius: 1em;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
-    font-weight: bold;
-    color: white;
+  background: var(--colorAccent);
+  border-radius: 1em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  font-weight: bold;
+  color: white;
 }
 
 /* Settings 2, I'm too lazy to add to the first */
 
 #Settings {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 #SettingsContent {
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 #Colors {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 #SettingsExtender {
-    height: 0em
+  height: 0em;
 }
 
 #Settings::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
 .SettingsButton {
-    background: var(--accent);
+  background: var(--accent);
 }
 
 #Custom::after {
-    content: "Custom";
-    color: var(--colorAccent);
-    background: transparent;
-    position: absolute;
-    height: 2.6em;
-    width: 4.8em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2em;
-    font-family: 'Roboto', sans-serif;
-    padding: 0em;
-    top: 25.72em;
-    left: 6.5em;
-    border: var(--colorAccent) solid;
+  content: "Custom";
+  color: var(--colorAccent);
+  background: transparent;
+  position: absolute;
+  height: 2.6em;
+  width: 4.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2em;
+  font-family: "Roboto", sans-serif;
+  padding: 0em;
+  top: 25.72em;
+  left: 6.5em;
+  border: var(--colorAccent) solid;
 }
 
 .SettingsInput {
-    overflow: hidden;
-    background: white;
-    padding: 0px;
-    border: none;
-    -webkit-appearance: none;
-    border-radius: 2em;
-    height: 2.9em;
+  overflow: hidden;
+  background: white;
+  padding: 0px;
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 2em;
+  height: 2.9em;
 }
 
 #Username {
-    font-family: 'Open Sans';
-    font-weight: bold;
+  font-family: "Open Sans";
+  font-weight: bold;
 }
 
 #pin-button:hover {
-    background-color: #00d234 !important
+  background-color: #00d234 !important;
 }
 
 /* Disable Image Drag */
 
 img {
-    pointer-events: none;
+  pointer-events: none;
 }

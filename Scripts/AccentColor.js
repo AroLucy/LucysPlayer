@@ -25,8 +25,8 @@ SettingsButton = rules[23]
 CustomAfter = rules[67]
 
 function ChangeAccent(Hex, HueRotate) {
-    Root.style = "--body: #fff; --text: #000; --shadow: #777; --accent: #efefef; --colorAccent: #"+Hex+";"
-    Darkmode.style = "--body: #222; --text: #fff; --shadow: #555; --accent: #2b2b2b; --colorAccent: #"+Hex+";"
+    Root.style = "--body: #fff; --text: #000; --shadow: #777; --accent: #efefef; --colorAccent: #" + Hex + ";"
+    Darkmode.style = "--body: #222; --text: #fff; --shadow: #555; --accent: #2b2b2b; --colorAccent: #" + Hex + ";"
     ControlCSS.style = HueRotate
     Active.style = HueRotate
     ActiveHover.style = HueRotate + "brightness(0.75) !important"
@@ -38,37 +38,37 @@ if (Accent == undefined) {
     Purple.checked = true
 } else if (Accent == "Purple") {
     Purple.checked = true
-    ChangeAccent(PurpleH,PurpleR)
+    ChangeAccent(PurpleH, PurpleR)
 } else if (Accent == "Blue") {
     Blue.checked = true
-    ChangeAccent(BlueH,BlueR)
+    ChangeAccent(BlueH, BlueR)
 } else if (Accent == "Green") {
     Green.checked == true
-    ChangeAccent(GreenH,GreenR)
+    ChangeAccent(GreenH, GreenR)
 } else if (Accent == "Yellow") {
     Yellow.checked = true
 } else if (Accent !== null) {
     color(Accent)
-    document.getElementById("Custom").value = "#"+Accent
+    document.getElementById("Custom").value = "#" + Accent
 } else if (Accent !== null) {
     Purple.checked = true
-    ChangeAccent(PurpleH,PurpleR)
+    ChangeAccent(PurpleH, PurpleR)
 }
 
 Purple.addEventListener('change', (event) => {
     if (Green.checked == true) {
         Green.checked = false
-    } 
+    }
     if (Blue.checked == true) {
         Blue.checked = false
-    } 
+    }
     if (Yellow.checked == true) {
         Yellow.checked = false
-    } 
+    }
     if (Purple.checked == true || Purple.checked == false) {
         Purple.checked = true
         localStorage.setItem('Accent', 'Purple')
-        ChangeAccent(PurpleH,PurpleR)
+        ChangeAccent(PurpleH, PurpleR)
         CustomAfter.style.background = "transparent"
         CustomAfter.style.color = "var(--colorAccent)"
     }
@@ -77,17 +77,17 @@ Purple.addEventListener('change', (event) => {
 Blue.addEventListener('change', (event) => {
     if (Green.checked == true) {
         Green.checked = false
-    } 
+    }
     if (Purple.checked == true) {
         Purple.checked = false
-    } 
+    }
     if (Yellow.checked == true) {
         Yellow.checked = false
-    } 
+    }
     if (Blue.checked == true || Blue.checked == false) {
         Blue.checked = true
         localStorage.setItem('Accent', 'Blue')
-        ChangeAccent(BlueH,BlueR)
+        ChangeAccent(BlueH, BlueR)
         CustomAfter.style.background = "transparent"
         CustomAfter.style.color = "var(--colorAccent)"
     }
@@ -96,17 +96,17 @@ Blue.addEventListener('change', (event) => {
 Green.addEventListener('change', (event) => {
     if (Blue.checked == true) {
         Blue.checked = false
-    } 
+    }
     if (Purple.checked == true) {
         Purple.checked = false
-    } 
+    }
     if (Yellow.checked == true) {
         Yellow.checked = false
-    } 
+    }
     if (Green.checked == true || Green.checked == false) {
         Green.checked = true
         localStorage.setItem('Accent', 'Green')
-        ChangeAccent(GreenH,GreenR)
+        ChangeAccent(GreenH, GreenR)
         CustomAfter.style.background = "transparent"
         CustomAfter.style.color = "var(--colorAccent)"
     }
@@ -115,17 +115,17 @@ Green.addEventListener('change', (event) => {
 Yellow.addEventListener('change', (event) => {
     if (Green.checked == true) {
         Green.checked = false
-    } 
+    }
     if (Purple.checked == true) {
         Purple.checked = false
-    } 
+    }
     if (Blue.checked == true) {
         Blue.checked = false
-    } 
+    }
     if (Yellow.checked == true || Yellow.checked == false) {
         Yellow.checked = true
         localStorage.setItem('Accent', 'Yellow')
-        ChangeAccent(YellowH,YellowR)
+        ChangeAccent(YellowH, YellowR)
         CustomAfter.style.background = "transparent"
         CustomAfter.style.color = "var(--colorAccent)"
     }

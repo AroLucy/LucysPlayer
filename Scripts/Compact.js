@@ -3,7 +3,7 @@ Compact = document.getElementById("Compact")
 function ComapctMode(state) {
     if (state == 'true') {
         if (localStorage.getItem("Compact") == 'true') {
-            window.resizeTo(300,300)
+            window.resizeTo(300, 300)
             document.getElementsByTagName("main")[0].style.height = "14.9em"
             document.getElementsByTagName("main")[0].style.flexDirection = "column"
             document.getElementById("art").style.height = "7em"
@@ -29,7 +29,7 @@ function ComapctMode(state) {
             document.getElementById("StatsFMBut").style.display = "none"
             document.getElementById("PlayCount").style.display = "none"
         } else {
-            window.resizeTo(300,200)
+            window.resizeTo(300, 200)
             document.getElementsByTagName("main")[0].style.height = "8.6em"
             document.getElementsByTagName("main")[0].style.flexDirection = "row"
             document.getElementById("art").style.height = "7em"
@@ -56,7 +56,7 @@ function ComapctMode(state) {
             document.getElementById("PlayCount").style.display = "none"
         }
     } else if (state == 'false') {
-        window.resizeTo(300,550)
+        window.resizeTo(300, 550)
         document.getElementsByTagName("main")[0].style.height = "31em"
         document.getElementsByTagName("main")[0].style.flexDirection = "column"
         document.getElementById("art").style.height = "10em"
